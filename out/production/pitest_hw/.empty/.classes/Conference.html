@@ -1,0 +1,137 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: Conference</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">&lt;empty package name&gt;</a> ]
+</div>
+
+<h1>Coverage Summary for Class: Conference (&lt;empty package name&gt;)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Conference</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    57.1%
+  </span>
+  <span class="absValue">
+    (4/ 7)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    66.7%
+  </span>
+  <span class="absValue">
+    (18/ 27)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;import java.util.ArrayList;
+<i>2</i>&nbsp;import java.util.List;
+<i>3</i>&nbsp;
+<i>4</i>&nbsp;public class Conference {
+<i>5</i>&nbsp;
+<b class="fc"><i>6</i>&nbsp;    public static double TICKET_PRICE = 8.67;</b>
+<b class="fc"><i>7</i>&nbsp;    public static double AFFILIATE_DISCOUNT = 0.1;</b>
+<b class="fc"><i>8</i>&nbsp;    public static double FACULTY_EMPLOYEE_DISCOUNT = 0.7;</b>
+<i>9</i>&nbsp;
+<i>10</i>&nbsp;    private List&lt;Person&gt; attendees;
+<i>11</i>&nbsp;    private int capacity;
+<i>12</i>&nbsp;
+<b class="fc"><i>13</i>&nbsp;    public Conference(int capacity) {</b>
+<b class="fc"><i>14</i>&nbsp;        this.attendees = new ArrayList&lt;&gt;(capacity);</b>
+<b class="fc"><i>15</i>&nbsp;        this.capacity = capacity;</b>
+<b class="fc"><i>16</i>&nbsp;    }</b>
+<i>17</i>&nbsp;
+<i>18</i>&nbsp;    public double calculateTotalPricePaid() {
+<b class="fc"><i>19</i>&nbsp;        double price = 0;</b>
+<i>20</i>&nbsp;
+<b class="fc"><i>21</i>&nbsp;        for (Person p : attendees) {</b>
+<i>22</i>&nbsp;
+<b class="fc"><i>23</i>&nbsp;            if (p.getRole().name().equals(&quot;AFFILIATE&quot;))</b>
+<b class="fc"><i>24</i>&nbsp;                price += (1 - AFFILIATE_DISCOUNT) * TICKET_PRICE;</b>
+<b class="fc"><i>25</i>&nbsp;            else if (p.getRole().name().equals(&quot;FACULTY_EMPLOYEE&quot;))</b>
+<b class="fc"><i>26</i>&nbsp;                price += (1 - FACULTY_EMPLOYEE_DISCOUNT) * TICKET_PRICE;</b>
+<b class="nc"><i>27</i>&nbsp;            else if (p.getRole().name().equals(&quot;OTHER&quot;))</b>
+<b class="nc"><i>28</i>&nbsp;                price += TICKET_PRICE;</b>
+<b class="fc"><i>29</i>&nbsp;        }</b>
+<b class="fc"><i>30</i>&nbsp;        return price;</b>
+<i>31</i>&nbsp;    }
+<i>32</i>&nbsp;
+<i>33</i>&nbsp;    public boolean addAttendeeToConference(Person person) {
+<b class="fc"><i>34</i>&nbsp;        if((this.attendees.size() &lt; capacity) || doubleCapacity()) {</b>
+<b class="fc"><i>35</i>&nbsp;           this.attendees.add(person);</b>
+<b class="fc"><i>36</i>&nbsp;           return true;</b>
+<b class="nc"><i>37</i>&nbsp;        }else return false;</b>
+<i>38</i>&nbsp;    }
+<i>39</i>&nbsp;
+<i>40</i>&nbsp;    public boolean doubleCapacity() {
+<b class="nc"><i>41</i>&nbsp;        if(this.capacity * 2 &gt; 10000)</b>
+<b class="nc"><i>42</i>&nbsp;            return false;</b>
+<b class="nc"><i>43</i>&nbsp;        this.capacity *= 2;</b>
+<b class="nc"><i>44</i>&nbsp;        return true;</b>
+<i>45</i>&nbsp;    }
+<i>46</i>&nbsp;
+<i>47</i>&nbsp;    public List&lt;Person&gt; getAttendees() {
+<b class="nc"><i>48</i>&nbsp;        return attendees;</b>
+<i>49</i>&nbsp;    }
+<i>50</i>&nbsp;
+<i>51</i>&nbsp;    public int getCapacity() {
+<b class="nc"><i>52</i>&nbsp;        return capacity;</b>
+<i>53</i>&nbsp;    }
+<i>54</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-05-11 19:24</div>
+</div>
+</body>
+</html>

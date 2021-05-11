@@ -1,0 +1,124 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: ConferenceTest</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">&lt;empty package name&gt;</a> ]
+</div>
+
+<h1>Coverage Summary for Class: ConferenceTest (&lt;empty package name&gt;)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ConferenceTest</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (4/ 4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (11/ 11)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;import jdk.jshell.PersistentSnippet;
+<i>2</i>&nbsp;import org.junit.Test;
+<i>3</i>&nbsp;
+<i>4</i>&nbsp;import java.util.ArrayList;
+<i>5</i>&nbsp;import java.util.List;
+<i>6</i>&nbsp;
+<i>7</i>&nbsp;import static org.junit.Assert.*;
+<i>8</i>&nbsp;
+<b class="fc"><i>9</i>&nbsp;public class ConferenceTest {</b>
+<b class="fc"><i>10</i>&nbsp;    private static int  capacity=10;</b>
+<b class="fc"><i>11</i>&nbsp;    private Conference conference=new Conference(capacity);</b>
+<i>12</i>&nbsp;    @Test
+<i>13</i>&nbsp;    public void calculatePriceForAffiliate(){
+<b class="fc"><i>14</i>&nbsp;        Person affiliate=new Person(&quot;Dijana&quot;,&quot;Sazdevska&quot;,Role.AFFILIATE,25);</b>
+<b class="fc"><i>15</i>&nbsp;        conference.addAttendeeToConference(affiliate);</b>
+<b class="fc"><i>16</i>&nbsp;        assertEquals((1 - Conference.AFFILIATE_DISCOUNT) * Conference.TICKET_PRICE,conference.calculateTotalPricePaid(),0);</b>
+<i>17</i>&nbsp;
+<i>18</i>&nbsp;
+<b class="fc"><i>19</i>&nbsp;    }</b>
+<i>20</i>&nbsp;    @Test
+<i>21</i>&nbsp;    public void calculatePriceForFacultyEmployee(){
+<b class="fc"><i>22</i>&nbsp;        Person employee=new Person(&quot;Dijana&quot;,&quot;Sazdevska&quot;,Role.FACULTY_EMPLOYEE,25);</b>
+<b class="fc"><i>23</i>&nbsp;        conference.addAttendeeToConference(employee);</b>
+<b class="fc"><i>24</i>&nbsp;        assertEquals((1 - Conference.FACULTY_EMPLOYEE_DISCOUNT) * Conference.TICKET_PRICE,conference.calculateTotalPricePaid(),0);</b>
+<i>25</i>&nbsp;
+<i>26</i>&nbsp;
+<b class="fc"><i>27</i>&nbsp;    }</b>
+<i>28</i>&nbsp;    @Test
+<i>29</i>&nbsp;    public void calculatePriceForOther(){
+<i>30</i>&nbsp;        Person other=new Person(&quot;Dijana&quot;,&quot;Sazdevska&quot;,Role.OTHER,25);
+<i>31</i>&nbsp;        conference.addAttendeeToConference(other);
+<i>32</i>&nbsp;        assertEquals(Conference.TICKET_PRICE,conference.calculateTotalPricePaid(),0);
+<i>33</i>&nbsp;    }
+<i>34</i>&nbsp;    @Test
+<i>35</i>&nbsp;    public void calculatePriceForStudent(){
+<i>36</i>&nbsp;        Person student=new Person(&quot;Dijana&quot;,&quot;Sazdevska&quot;,Role.STUDENT,25);
+<i>37</i>&nbsp;        conference.addAttendeeToConference(student);
+<i>38</i>&nbsp;        assertEquals(0,conference.calculateTotalPricePaid(),0);
+<i>39</i>&nbsp;    }
+<i>40</i>&nbsp;
+<i>41</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-05-11 19:24</div>
+</div>
+</body>
+</html>
